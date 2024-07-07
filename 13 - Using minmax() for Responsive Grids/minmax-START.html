@@ -21,7 +21,17 @@
       display: grid;
       grid-gap: 20px;
       border: 10px solid var(--yellow);
-      grid-template-columns: repeat(auto-fill, 150px);
+
+      /* When using minmax() to set the width of grid items, changing auto-fill and auto-fit will produce different results as well. In this case, the minimum size of a grid item is 150 px. However, the maximum is 1fr, meaning grid items will grow to a full grid fraction when space allows. In the case of auto-fill, the grid is expanding to fill the container, adding columns as necessary. Auto-fit behaves differently, using the content of the container (i.e. the grid items) to determine the number of columns, whihc in this case is four. So, as the container grows wider, no new columns are added, so the columns also grow wider to take up each fraction of the grid as defined by the total number of grid items, which is four. */
+
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+      /* Another possibility if some column or rows must remain a defined sized is to use auto (to fill the remaining space) or fit-content (to clamp the size) to define the size of a specific row or column. */
+
+      /* grid-template-columns: auto 150px 150px 150px; */
+
+      /* grid-template-columns: fit-content(50px) 150px 150px 150px; */
+
     }
   </style>
 </body>
