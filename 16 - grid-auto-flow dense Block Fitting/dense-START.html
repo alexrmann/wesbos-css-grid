@@ -86,7 +86,27 @@
     .container {
       display: grid;
       grid-gap: 20px;
+      grid-template-columns: repeat(10, 1fr);
+
+      /* Setting the grid flow to dense eliminates gaps and empty cells in the grid layout whenever it is possible to fit a grid item into the remaining cell area(s). */
+      grid-auto-flow: dense;
     }
+
+    /* This can be particularly useful when the nth-child selector is used to select multiple items and change their grid extents. In this case, setting grid-auto-flow to "dense" results in the smallest grid items filling in the leftover cells created by these child selector rules. */
+    .item:nth-child(6n) {
+      background: cornflowerblue;
+      grid-column: span 6;
+    }
+
+    .item:nth-child(8n) {
+      background: tomato;
+      grid-column: span 2;
+    }
+
+    .item:nth-child(9n) {
+      grid-row: span 2;
+    }
+
   </style>
 </body>
 
