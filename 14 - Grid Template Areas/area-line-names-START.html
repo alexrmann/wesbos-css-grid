@@ -43,9 +43,22 @@
   </div>
 
   <style>
+
+    /* Here, grid-template-areas is used to define areas in advance of any consideration of total grid items. The CSS below defines an 4x8 grid with the left half using an area called 'O' and the right half called 'V'. */
     .container {
       display: grid;
       grid-gap: 20px;
+      grid-template-areas: 
+      "O O O O V V V V"
+      "O O O O V V V V"
+      "O O O O V V V V"
+      "O O O O V V V V";
+    }
+
+    /* When a grid item spans multiple grid cells, the grid will create new implicit row to handle any grid items in excess of the total remaining cells. Here, item 3 is occupying 8 cells in a single row, which results in items 26 through 30 being pushed into the cells of a new implicit row created at the end of the grid. */
+    .item3 {
+      grid-column: O-start / V-end;
+      grid-row-end: O-end;
     }
   </style>
 </body>
