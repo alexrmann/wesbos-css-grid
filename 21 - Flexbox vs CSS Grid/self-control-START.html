@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <!-- Self Contol on box Axis -->
+  <!-- Self Control on box Axis -->
 
   <div class="corners">
     <div class="corner item">1</div>
@@ -25,14 +25,25 @@
       width: 200px;
       border: 10px solid var(--yellow);
 
+      /* grid-template is shorthand for grid-template-areas, grid-template-rows, and grid-template-columns (in that order), with a forward slash (/) used to differentiate between the values */
+      
+      /* In this example, no areas are defined--just rows and columns. */
+      grid-template: 1fr 1fr / 1fr 1fr; 
+      align-items: end;
+      justify-items: end;
     }
 
 
     .corner:nth-child(1),
-    .corner:nth-child(2) {}
+    .corner:nth-child(2) {
+      align-self: start;
+    }
 
+    /* Unlike flexbox, grid allows us to use justify-self, which makes this "four corner" layout only possibly with grid. */
     .corner:nth-child(1),
-    .corner:nth-child(3) {}
+    .corner:nth-child(3) {
+      justify-self: start;
+    }
   </style>
 </body>
 
