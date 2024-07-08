@@ -21,9 +21,20 @@
     <div class="item">Short</div>
   </div>
   <style>
-    .flex-container {}
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid whitesmoke;
+      padding: 10px;
+    }
 
     .flex-container>* {
+      /* The masonry effect is best achieved with flexbox, since we can grow the flex items to fill the flex container without explicitly defining grid spans. Less control over the layout, but far more "flex"-ible when adding or removing flex items. */
+      flex-grow: 1;
+
+      /* Again, since flexbox doesn't use gap, you'll run into this margin problem where the gap between items is twice the margin.
+      This is solved by adding padding to the flex container, but it's not a perfect fix.
+      */
       margin: 10px;
     }
   </style>
