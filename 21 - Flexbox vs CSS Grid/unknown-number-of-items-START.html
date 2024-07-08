@@ -24,7 +24,13 @@
   </div>
 
   <style>
-    .unknown {}
+    .unknown {
+      display: grid;
+      
+      /* auto-fit resizes the items to fit the available grid space while minmax says the smallest column size allowed is 50px and the maximum size is one fraction of the grid. As items are added, they create columns that take up one fraction of the grid. Once the minimum column size is reached, implicit rows are created to accept the additional items. */
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      gap: 20px;
+    }
   </style>
 </body>
 
