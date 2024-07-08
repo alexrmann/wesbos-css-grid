@@ -19,10 +19,16 @@
   </div>
 
   <style>
-    .stacked {}
+    .stacked {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
     .stacked>* {
-      width: 30%;
+      width: 40%;
+
+      /* Flexbox does not accept gap rules, so we have to use margin-bottom to create a gap between the first and second rows of content. */
       margin-bottom: 20px;
     }
   </style>
