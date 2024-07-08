@@ -22,6 +22,17 @@
   <style>
     .controls {
       margin: 200px 0;
+
+      /* Using flexbox makes more sense in this instance because grid would require an explicit definition of the space each item would occupy.
+      
+      Ex:
+      display: grid;
+      grid-template-columns: auto auto auto 1fr auto auto;
+
+      This is problematic because if the number of order of the items changes, the space occupied would be locked to the defined column and therefore you might have items incorrectly sized for your purposes.
+      */
+      display: flex;
+      align-items: center;
     }
 
     .scrubber {
@@ -29,6 +40,9 @@
       height: 10px;
       min-width: 100px;
       border-radius: 10px;
+
+      /* Instead, you can tell a given item to grow within its parent container rather than a specific row within a grid container. */
+      flex-grow: 1;
     }
   </style>
 
