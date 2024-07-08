@@ -20,6 +20,17 @@
     .hero {
       height: 200px;
       background: rgba(255, 255, 255, 0.2);
+
+      /* In this case, the difference between using flexbox and grid to align all items within the center of a parent element is essentially one line of code. It should also be noted that flex will justify the content and align the items (when the flex direction is column), whereas grid will justify the items and align the content. */
+
+      /* display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; */
+
+      display: grid;
+      justify-items: center;
+      align-content: center;
     }
   </style>
 </body>
