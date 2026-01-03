@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <title>CSS Grid Fundamentals!</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/style.css">
-  <title>CSS Grid Fundamentals!</title>
-</head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+    </div>
+    <div class="container2">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item">10</div>
+    </div>
+    <style>
+      .container,
+      .container2 {
+        display: grid;
+        grid-gap: 2rem;
+      }
 
-<body>
-  <div class="container">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-    <div class="item">4</div>
-    <div class="item">5</div>
-    <div class="item">6</div>
-    <div class="item">7</div>
-    <div class="item">8</div>
-    <div class="item">9</div>
-    <div class="item">10</div>
-  </div>
-  <style>
-    .container {
-      display: grid;
-      grid-template-columns: 200px 500px;
-      grid-template-rows: 200px 100px 400px 300px; /* The final row auto-sizes because no row height is declared (i.e. its size is implicit). */
-      grid-gap: 20px;
-    }
-  </style>
-</body>
+      .container {
+        grid-template-columns: 200px 500px;
+        grid-template-rows: 200px 100px 400px 300px; /* The final row auto-sizes because no row height is declared (i.e. its size is implicit). */
+        grid-gap: 2rem;
+      }
 
+      .container + .container2 {
+        margin-block-start: 4rem;
+      }
+
+      .container2 {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 200px; /* Auto is the default. It will size to fit the content of the largest item. If a size is declared, it will apply to the first row. Any additional rows created by items beyond the total grid columns will have their height assigned 'auto'.*/
+      }
+
+      .container2 > .item {
+        background-color: darkseagreen;
+      }
+    </style>
+  </body>
 </html>
