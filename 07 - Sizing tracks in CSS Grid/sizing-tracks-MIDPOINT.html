@@ -13,16 +13,16 @@
       <div class="item">ipsum</div>
       <div class="item">dolor</div>
       <div class="item">sit</div>
+      <div class="item">height: 1fr</div>
       <div class="item">amet</div>
       <div class="item">consectetur</div>
-      <div class="item">adipisicing</div>
-      <div class="item item-100px">elit</div>
+      <div class="item item-100px">I am 120px tall overflow</div>
       <div class="item">Illum</div>
       <div class="item">sequi</div>
       <div class="item">natus</div>
       <div class="item">quibusdam</div>
+      <div class="item">This row is 2fr</div>
       <div class="item">facere</div>
-      <div class="item">maxime</div>
       <div class="item">nemo</div>
     </div>
 
@@ -33,16 +33,19 @@
         grid-gap: 20px;
         border: 10px solid var(--yellow);
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr; /* If neither the items nor the containers have an explicit height set, 1fr is based on the minimum implicit height of the tallest item. */
+
+        /* The height of 1fr calculated by the grid-template-rows property is determined by the tallest item falling on a row whose grid-template height is 1fr. */
+        grid-template-rows: 1fr 1fr 1fr 2fr; /* If neither the items nor the containers have an explicit height set, 1fr is based on the minimum implicit height of the tallest item. */
       }
 
       .item {
-        /* height: 100px; /* The minimum implicit height an item is determined by each item's box model (including margin, border, padding and content). */
+        /* The minimum implicit height an item is determined by each item's box model (including margin, border, padding and content). */
         margin: 1rem;
       }
 
       .item-100px {
-        height: 100px; /* Unless a height is set explicitly, or if the explicit height is less than the implicit height of the item, the tallest item which falls on a row whose grid-template height is set to 1fr will determine the size of 1fr. However, if any item has an explicit height which is greater than its implicit height, and it falls on a row whose grid-template equals 1fr, then that item will determine the size of 1fr for all rows. In other words, 1fr is determined by the tallest item falling on a row whose grid-template height is 1fr. */
+        background-color: hsl(from var(--yellow) 200deg s l);
+        height: 120px; /* Unless a height is set explicitly, or if the explicit height is less than the implicit height of the item, the tallest item which falls on a row whose grid-template height is set to 1fr will determine the size of 1fr. However, if any item has an explicit height set that is larger than any other item falling on a 1fr row, regardless of its implicit height, then that item's explicit height will determine the size of 1fr for all rows. */
       }
     </style>
   </body>
