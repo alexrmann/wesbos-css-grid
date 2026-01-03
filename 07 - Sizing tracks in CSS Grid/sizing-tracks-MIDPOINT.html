@@ -29,7 +29,7 @@
     <style>
       .container {
         display: grid;
-        /* height: 1600px; */  /* Setting the container's height will cause the grid-template-rows property to calculate 1fr from the container's explicit height. If the explicit height is smaller than the total implicit height of all items, the items will overflow the grid tracks. If set to 100%, 1fr is calculated based on item height (see below). */
+        /* height: 1600px; */ /* Setting the container's height will cause the grid-template-rows property to calculate 1fr from the container's explicit height. If the explicit height is smaller than the total implicit height of all items, the items will overflow the grid tracks. If set to 100%, 1fr is calculated based on item height (see below). */
         grid-gap: 20px;
         border: 10px solid var(--yellow);
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -40,8 +40,9 @@
         /* height: 100px; /* The minimum implicit height an item is determined by each item's box model (including margin, border, padding and content). */
         margin: 1rem;
       }
+
       .item-100px {
-        height: 100px;  /* Unless a height is set explicitly, or if the explicit height is less than the implicit height of the item, the tallest item which falls on a row whose grid-template height is set to 1fr will determine the size of 1fr. However, if any item has an explicit height which is greater than its implicit height, and it falls on a row whose grid-template equals 1fr, then that item will determine the size of 1fr for all rows. In other words, 1fr is determined by the tallest item falling on a row whose grid-template height is 1fr. */
+        height: 100px; /* Unless a height is set explicitly, or if the explicit height is less than the implicit height of the item, the tallest item which falls on a row whose grid-template height is set to 1fr will determine the size of 1fr. However, if any item has an explicit height which is greater than its implicit height, and it falls on a row whose grid-template equals 1fr, then that item will determine the size of 1fr for all rows. In other words, 1fr is determined by the tallest item falling on a row whose grid-template height is 1fr. */
       }
     </style>
   </body>
