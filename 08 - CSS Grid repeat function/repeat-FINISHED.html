@@ -24,14 +24,14 @@
     <div class="item">12</div>
     <div class="item">13</div>
     <div class="item">14</div>
-    <div class="item">15</div>
+    <div class="item">15!</div>
   </div>
 
   <style>
     .container {
       display: grid;
       grid-gap: 20px;
-      grid-template-columns: 100px repeat(2, 1fr auto) 200px repeat(2, 5fr);
+      grid-template-columns: 100px repeat(2, 1fr auto) 100px; /* While 1fr will be calculated from the space remaining after the sum of all explicitly stated column widths is calculated, auto is determined by the width of the widest item in the column. Here, the last item (i.e. 15!) is the widest in its column. In the second to last column, item 11 is the widest. */
     }
   </style>
 </body>
