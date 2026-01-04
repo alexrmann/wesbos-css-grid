@@ -52,8 +52,8 @@
 
     .item9 {
       background: mistyrose;
-      grid-column: span 10; /* If the item's span exceeds the template columns, the grid will add columns to match the total columns "spanned". */
-      grid-row: span 2; /* This will impact the total rows, as the remaining items fill the implicit columns created, resized to matched their content-width. */
+      grid-column: span 2; /* If there is no room for the item to span given the explicitly-defined template columns, it will break to the next row. */
+      grid-row: span 12; /* If the spanned rows exceed the total rows (and the columns spanned do not cause new implicit columns to be generated, then new implicit rows will be generated for the item.) */
     }
   </style>
 </body>
