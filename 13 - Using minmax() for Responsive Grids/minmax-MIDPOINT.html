@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <title>Using minmax() for Responsive Grids!</title>
+  </head>
+
+  <body>
+    <div class="container container1">
+      <div class="item item1">Item 01</div>
+      <div class="item item2">Bonjour!</div>
+      <div class="item item3">Item 03</div>
+      <div class="item item4">Item 04</div>
+    </div>
+
+    <div class="container container2">
+      <div class="item item1">Item 01</div>
+      <div class="item item2">Bonjour!</div>
+      <div class="item item3">Item 03</div>
+      <div class="item item4">Item 04</div>
+    </div>
+
+    <style>
+      .container + .container {
+        margin-block-start: 8em;
+      }
+
+      .container {
+        display: grid;
+        grid-gap: 20px;
+        border: 10px solid var(--yellow);
+      }
+
+      /* When using minmax() to set the width of grid items, changing auto-fill and auto-fit will produce different results as well. In this case, the minimum size of a grid item is 150 px. However, the maximum is 1fr, meaning grid items will grow to a full grid fraction when space allows. */
+
+      .container1 {
+        /* In the case of auto-fill, the grid is expanding to fill the container, adding columns as necessary. */
+
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+
+      .container2 {
+        /* Auto-fit behaves differently, using the content of the container (i.e. the grid items) to determine the number of columns, which in this case is four. So, as the container grows wider, no new columns are added, so the columns also grow wider to take up each fraction of the grid as defined by the total number of grid items, which is four. */
+
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      /* What these differences demonstrate is that what is being automatically "filled" or "fit" is the visual display of grid columns. With auto-fill, if there is room in the viewport for another column, room will be alloted for it visually (i.e. you will "see" the column, especially with dev tools). With auto-fit, the columns will only display such that they "fit" to the grid items. In both cases, the same number of columns are created, but only with auto-fill are they "displayed" (alloted space in the viewport) relative to the viewport size, whereas with auto-fit room is only alloted as needed to fit all the grid's items regardless of viewport size. */
+
+      /* Another possibility if some column or rows must remain a defined sized is to use auto (to fill the remaining space) or fit-content (to clamp the size) to define the size of a specific row or column. */
+
+      /* grid-template-columns: auto 150px 150px 150px; */
+
+      /* grid-template-columns: fit-content(50px) 150px 150px 150px; */
+    </style>
+  </body>
+</html>
