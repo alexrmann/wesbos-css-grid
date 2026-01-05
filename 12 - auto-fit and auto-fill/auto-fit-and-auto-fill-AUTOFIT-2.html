@@ -26,7 +26,7 @@
       }
 
       .item4 {
-        grid-column-end: -1; /* Place item 4 in the last column. With auto-fit, this item will always "fit" into the last column, but since the final columns stack where there aren't items to "fill" them, item 4 remains immediately adjacent to its preceding neighbor item. If there isn't enough room in the viewport, it will break to a new row and reside in the last column of that row. The overall effect is that all the items "fit" together visually. */
+        grid-column-end: 7; /* If we demarcate a specific grid track as the end of item 4, the result will either create a new implicit column between 3 and 4 if its intrisic size doesn't "fit", stretch the item to fill the column "stack" if it does fit, but there isn't room for another implicit column beyond the last, or "fit" the items together in the column stack if there is room equal or greater to the item content, thereby causing that column to stack. Because the end is set to a track beyond the explicit tracks, the item will not break to a new line if the viewport shrinks below the explicit tracks, which can cause overflow. */
       }
 
     </style>
