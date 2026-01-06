@@ -58,7 +58,9 @@
     /* When a grid item spans multiple grid cells, the grid will create new implicit row to handle any grid items in excess of the total remaining cells. Here, item 3 is occupying 8 cells in a single row, which results in items 26 through 30 being pushed into the cells of a new implicit row created at the end of the grid. */
     .item3 {
       grid-column: O-start / V-end;
+      /* The -start and -end property types for grid-row and grid-column determine whether the item is places with its "end" or its "start" touching the grid track line. */
       grid-row-end: O-end;
+      /* grid-row-start: O-end; Uncomment this and comment the above line to see the difference. */
     }
   </style>
 </body>
