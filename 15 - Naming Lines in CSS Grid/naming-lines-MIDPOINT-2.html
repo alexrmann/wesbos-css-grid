@@ -43,26 +43,32 @@
   </div>
 
   <style>
-    /* Naming individual rows or columns and defining extents within rows and columns is possible as well, using bracket notation. Unfortunately, Firefox Dev Tools doesn't have an option to display these areas. Instead you'll need to rely on background color or borders to help you visualize the areas when developing a template. */
+    /* Naming individual grid-tracks and defining item extents is possible using bracket notation. Think of the bracket as an array of space-separated grid track names. Any track can have multiple names. */ 
     .container {
       display: grid;
       grid-gap: 20px;
+
+      /* The track name array is followed by a size declaration defining the width of a column or the height of a row. (e.g., 1fr, 500px, etc.). */
       grid-template-columns: 
       [site-left sidebar-start] 1fr 
       [sidebar-end content-start] 500px 
       [content-end] 1fr
       [site-right];
+
+      /* These size declarations can also be functions (e.g., repeat(), fit-content(), etc.) */
       grid-template-rows: 
       [content-top] repeat(10, auto)
       [content-bottom];
     }
 
-    /* You can then use these named sub-areas to define the extents of grid items.*/
+    /* You can then use these named lines (a.k.a. "grid tracks") to define the extents of grid items.*/
     .content {
       background: slateblue;
       grid-column: content-start;
       grid-row: content-top / content-bottom;
     }
+    
+    /* Unfortunately, Firefox Dev Tools doesn't have an option to display these areas. Instead you'll need to rely on background color or borders to help you visualize the areas when developing a template. */
   </style>
 </body>
 
