@@ -62,88 +62,12 @@
 
       align-self:
       justify-self:
-
-      justify-* uses the INLINE (row) axis
-      align-* uses the BLOCK (column) axis
     */
-
+    
     .container {
       display: grid;
       grid-gap: 20px;
-      border: 10px solid var(--yellow);
-      grid-template-columns: repeat(5, 100px);
-      grid-template-rows: repeat(5, 100px);
-
-      /* JUSTIFY-ITEMS & ALIGN-ITEMS
-      
-      The default value for justify-items and align-items is "stretch".
-
-      justify-items: stretch;
-      align-items: stretch;
-
-      You can use start, end, and center to change the default behavior. 
-      
-      justify-items: start;
-      justify-items: end;
-      align-items: start;
-      align-items: end;
-      
-      justify-items: center;
-      align-items: center;
-
-      Interestingly, these values also work.
-      justify-items: flex-start;       justify-items: flex-end; 
-      
-      Though browser support needs to be checked, place-items functions as shorthand for justify-items and align-items.
-
-      place-items: center center;
-      */
-      justify-items: stretch;
-      align-items: center;
-
-      /*  JUSTIFY-CONTENT & ALIGN-CONTENT
-
-      Sets the alignment of the GRID within the grid container. 
-
-      Items are the things in the grid, but content is the grid itself.
-
-      Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to align-content which aligns the grid along the block (column) axis).
-
-      Values: start, end, center, stretch, space-around, space-between, and space-evenly.
-
-      */
-      justify-content: space-around;
-
-      /* Align content only works if the grid has an explicit height defined in CSS.*/
-      height: 1500px;
-      align-content: center;
-
-    }
-
-    .itm {
-      background: whitesmoke;
-      font-size: large;
-    }
-
-    .itm17 {
-      background: slateblue;
-      color: whitesmoke;
-
-      /*  JUSTIFY-SELF & ALIGN-SELF
-
-      JUSTIFY-SELF
-      Aligns a grid item inside a cell along the inline (row) axis (as opposed to align-self which aligns along the block (column) axis). This value applies to a grid item inside a single cell.
-
-      ALIGN-SELF
-      Aligns a grid item inside a cell along the block (column) axis (as opposed to justify-self which aligns along the inline (row) axis). This value applies to the content inside a single grid item.
-
-      VALUES
-      Both justify-self and align-self accept start, end, center, and stretch (default).
-
-      Note: justify-self is not available in CSS Flexbox, but it is in CSS Grid!
-      */
-      justify-self: ;
-      align-self: start;
+      grid-template-columns: repeat(10, 1fr);
     }
 
   </style>
