@@ -65,6 +65,8 @@
 
       justify-* uses the INLINE (row) axis
       align-* uses the BLOCK (column) axis
+
+      For more information: https://css-tricks.com/css-grid-layout-guide/
     */
 
     .container {
@@ -72,7 +74,7 @@
       grid-gap: 20px;
       border: 10px solid var(--yellow);
       grid-template-columns: repeat(5, 100px);
-      grid-template-rows: repeat(5, 100px);
+      grid-template-rows: repeat(5, 100px); /* The final three rows in this example are implicit, thus  */
 
       /* JUSTIFY-ITEMS & ALIGN-ITEMS
       
@@ -95,11 +97,11 @@
       justify-items: flex-start;       justify-items: flex-end; 
       
       Though browser support needs to be checked, place-items functions as shorthand for justify-items and align-items.
-
-      place-items: center center;
-      */
+*/
+      
       justify-items: stretch;
       align-items: center;
+      /* place-items: center center; */
 
       /*  JUSTIFY-CONTENT & ALIGN-CONTENT
 
@@ -112,11 +114,11 @@
       Values: start, end, center, stretch, space-around, space-between, and space-evenly.
 
       */
-      justify-content: space-around;
+      justify-content: space-between;
 
-      /* Align content only works if the grid has an explicit height defined in CSS.*/
+      /* Align content only works if the grid container has an explicit height defined in CSS.*/
       height: 1500px;
-      align-content: center;
+      align-content: space-between;
 
     }
 
@@ -142,7 +144,7 @@
 
       Note: justify-self is not available in CSS Flexbox, but it is in CSS Grid!
       */
-      justify-self: ;
+      justify-self: end;
       align-self: start;
     }
 
